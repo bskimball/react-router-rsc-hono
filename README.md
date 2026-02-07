@@ -105,6 +105,15 @@ bun server.bun.ts
 
 > **Note**: Bun support requires the `@ungap/compression-stream` polyfill, which is imported in `server.bun.ts`.
 
+### Docker with Bun
+
+Build and run with the Bun Dockerfile:
+
+```bash
+docker build -f Dockerfile.bun -t rr-rsc-bun .
+docker run -p 3000:3000 rr-rsc-bun
+```
+
 ## Understanding React Server Components
 
 This template includes three entry points:
