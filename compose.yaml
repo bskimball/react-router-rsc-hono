@@ -1,0 +1,22 @@
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles: [node]
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT:-3000}
+
+  bun:
+    build:
+      context: .
+      dockerfile: Dockerfile.bun
+    profiles: [bun]
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    environment:
+      - NODE_ENV=production
+      - PORT=${PORT:-3000}

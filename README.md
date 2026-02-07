@@ -80,20 +80,35 @@ The production server uses:
 
 ## Docker
 
-Build and run with Docker (uses Node.js 24 Alpine):
+Run with Docker Compose using profiles:
 
 ```bash
+# Node.js (default)
+docker compose --profile node up
+
+# Bun
+docker compose --profile bun up
+```
+
+Or with a custom port:
+
+```bash
+PORT=8080 docker compose --profile node up
+```
+
+You can also build and run directly with Docker:
+
+```bash
+# Node.js
 docker build -t rr-rsc .
 docker run -p 3000:3000 rr-rsc
+
+# Bun
+docker build -f Dockerfile.bun -t rr-rsc-bun .
+docker run -p 3000:3000 rr-rsc-bun
 ```
 
-Or with custom port:
-
-```bash
-docker run -p 8080:8080 -e PORT=8080 rr-rsc
-```
-
-The Dockerfile uses a multi-stage build with `node:24-alpine` for a minimal production image.
+Both Dockerfiles use multi-stage builds with Alpine images for minimal production images.
 
 ## Bun Support
 
@@ -104,15 +119,6 @@ bun server.bun.ts
 ```
 
 > **Note**: Bun support requires the `@ungap/compression-stream` polyfill, which is imported in `server.bun.ts`.
-
-### Docker with Bun
-
-Build and run with the Bun Dockerfile:
-
-```bash
-docker build -f Dockerfile.bun -t rr-rsc-bun .
-docker run -p 3000:3000 rr-rsc-bun
-```
 
 ## Understanding React Server Components
 
