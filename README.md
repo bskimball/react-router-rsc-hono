@@ -95,6 +95,16 @@ docker run -p 8080:8080 -e PORT=8080 rr-rsc
 
 The Dockerfile uses a multi-stage build with `node:24-alpine` for a minimal production image.
 
+## Bun Support
+
+A Bun-optimized server is included as `server.bun.ts`. It uses `hono/bun` for static file serving and exports a default Bun server config. To use it, run:
+
+```bash
+bun server.bun.ts
+```
+
+> **Note**: Bun support requires the `@ungap/compression-stream` polyfill, which is imported in `server.bun.ts`.
+
 ## Understanding React Server Components
 
 This template includes three entry points:
