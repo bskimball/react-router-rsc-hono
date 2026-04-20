@@ -27,7 +27,7 @@ React Router RSC template using React Server Components (experimental), powered 
 
 - `server.ts` - Production server using Hono and @hono/node-server
 - `src/entry.rsc.tsx` - React Server Components entry point
-- `src/entry.ssr.tsx` - Server-side rendering entry point  
+- `src/entry.ssr.tsx` - Server-side rendering entry point
 - `src/entry.browser.tsx` - Client-side hydration entry point
 - `dist/rsc/` - Built RSC output
 - `dist/client/` - Built client assets
@@ -35,6 +35,7 @@ React Router RSC template using React Server Components (experimental), powered 
 ## Code Style
 
 Uses **Biome** with:
+
 - Double quotes for strings
 - Tab indentation
 - Recommended linting rules

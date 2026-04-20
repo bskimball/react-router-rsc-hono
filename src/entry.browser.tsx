@@ -7,8 +7,11 @@ import {
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import {
+	// @ts-expect-error - RSC unstable API from react-router, types not aligned
 	unstable_createCallServer as createCallServer,
+	// @ts-expect-error - RSC unstable API from react-router, types not aligned
 	unstable_getRSCStream as getRSCStream,
+	// @ts-expect-error - RSC unstable API from react-router, types not aligned
 	unstable_RSCHydratedRouter as RSCHydratedRouter,
 	type unstable_RSCPayload as RSCServerPayload,
 } from "react-router";
@@ -23,18 +26,14 @@ setServerCallback(
 );
 
 // Get and decode the initial server payload
-createFromReadableStream<RSCServerPayload>(getRSCStream()).then((payload) => {
+void createFromReadableStream<RSCServerPayload>(getRSCStream()).then((payload) => {
 	startTransition(async () => {
-		const formState =
-			payload.type === "render" ? await payload.formState : undefined;
+		const formState = payload.type === "render" ? await payload.formState : undefined;
 
 		hydrateRoot(
 			document,
 			<StrictMode>
-				<RSCHydratedRouter
-					createFromReadableStream={createFromReadableStream}
-					payload={payload}
-				/>
+				<RSCHydratedRouter createFromReadableStream={createFromReadableStream} payload={payload} />
 			</StrictMode>,
 			{
 				// @ts-expect-error - no types for this yet

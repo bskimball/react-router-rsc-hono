@@ -1,4 +1,19 @@
-.DS_Store
-node_modules
-dist
+# Dependencies
+node_modules/
+dist/
+
+# Environment
 .env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Agent skill files
+.agents/
+skills-lock.json
