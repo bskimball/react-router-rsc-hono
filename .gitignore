@@ -17,3 +17,6 @@ Thumbs.db
 # Agent skill files
 .agents/
 skills-lock.json
+
+# AI context (local only)
+AGENTS.md

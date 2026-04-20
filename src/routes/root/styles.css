@@ -1,2 +1,55 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+	--color-brand-primary: oklch(0.65 0.2 270);
+	--color-brand-secondary: oklch(0.7 0.15 190);
+	--color-brand-accent: oklch(0.75 0.15 330);
+	--color-background: oklch(0.12 0.015 260);
+	--color-surface: oklch(0.18 0.02 260);
+	--color-surface-elevated: oklch(0.24 0.02 260);
+	--color-foreground: oklch(0.98 0.01 260);
+	--color-foreground-muted: oklch(0.75 0.01 260);
+	--color-border: oklch(0.25 0.02 260);
+	--color-border-subtle: oklch(0.25 0.02 260 / 0.4);
+
+	--font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+	body {
+		@apply bg-background text-foreground antialiased;
+	}
+}
+
+@layer utilities {
+	.bg-brand-gradient {
+		background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+	}
+	.text-brand-gradient {
+		background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+	.text-brand-gradient-accent {
+		background: linear-gradient(135deg, var(--color-brand-secondary), var(--color-brand-accent));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+	.glass {
+		backdrop-filter: blur(12px);
+		background-color: color-mix(in srgb, var(--color-surface), transparent 30%);
+		border: 1px solid var(--color-border-subtle);
+	}
+	.glass-strong {
+		backdrop-filter: blur(20px);
+		background-color: color-mix(in srgb, var(--color-surface-elevated), transparent 10%);
+		border: 1px solid var(--color-border);
+	}
+	.border-brand-glow {
+		border-color: color-mix(in srgb, var(--color-brand-primary), transparent 50%);
+		box-shadow: 0 0 20px -5px var(--color-brand-primary);
+	}
+}
