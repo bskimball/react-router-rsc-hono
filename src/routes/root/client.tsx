@@ -26,7 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 			<body className="bg-background text-text-primary min-h-screen font-body antialiased">
 				{/* Global Bauhaus Header */}
 				<header className="bauhaus-header sticky top-0 z-50">
-					<div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+					<div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
 						<div className="flex items-center gap-6">
 							<Link to="/" className="flex items-center gap-4 group">
 								<BauhausLogo className="w-10 h-10 transition-transform group-hover:rotate-90 duration-500" />
