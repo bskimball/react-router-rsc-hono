@@ -2,7 +2,7 @@
 
 ⚠️ **EXPERIMENTAL**: This template demonstrates React Server Components with React Router. This is experimental technology and not recommended for production use.
 
-A modern template for exploring React Server Components (RSC) with React Router, powered by Vite and served with Hono using Node.js native TypeScript support. Formatted with Biome.
+A modern template for exploring React Server Components (RSC) with React Router, powered by Vite and served with Hono using Node.js native TypeScript support. Formatted with [Vite+](https://vite.plus).
 
 ## Features
 
@@ -14,11 +14,11 @@ A modern template for exploring React Server Components (RSC) with React Router,
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
 - 🌐 **Hono** - Fast, lightweight web framework for the server
-- 🧹 **Biome** - Fast formatter and linter for consistent code style
+- 🧹 **Vite+** - Unified toolchain with Oxlint, Oxfmt, and Vitest
 - 📖 [React Router docs](https://reactrouter.com/)
 - 📚 [React Server Components guide](https://reactrouter.com/how-to/react-server-components)
 - 🔥 [Hono documentation](https://hono.dev/)
-- ⚡ [Biome documentation](https://biomejs.dev/)
+- ⚡ [Vite+ documentation](https://vite.plus)
 
 ## Requirements
 
@@ -139,22 +139,14 @@ Learn more about React Server Components with React Router in our [comprehensive
 
 ## Code Quality
 
-This project uses **Biome** for fast, consistent code formatting and linting:
+This project uses **Vite+** (via `vp`) for fast, consistent code formatting and linting:
 
 ### Formatting
 
 Format your code:
 
 ```bash
-npm run format
-```
-
-### Linting
-
-Check for code issues:
-
-```bash
-npm run lint
+npm run fmt
 ```
 
 ### Combined Check
@@ -165,17 +157,17 @@ Run both formatting and linting:
 npm run check
 ```
 
-Biome is configured to:
+Vite+ is configured to:
 
 - Use double quotes for JavaScript/TypeScript
 - Use tab indentation
-- Enable recommended linting rules
+- Enable recommended linting rules (Oxlint)
 - Automatically organize imports
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This template comes with [Tailwind CSS v4](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
 
 ---
 
-Built with ❤️ using React Router, Hono, Node.js, and Biome.
+Built with ❤️ using React Router, Hono, Node.js, and Vite+.
