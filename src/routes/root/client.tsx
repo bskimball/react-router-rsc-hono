@@ -52,6 +52,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
 					</div>
 				</header>
 				<div className="relative">{children}</div>
+				<footer className="border-t border-border-subtle mt-auto">
+					<div className="mx-auto max-w-7xl px-4 py-8">
+						<div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-foreground-muted">
+							<p>Built with Hono + React Router + RSC</p>
+							<div className="flex items-center gap-4">
+								<a
+									href="https://hono.dev"
+									target="_blank"
+									rel="noreferrer"
+									className="hover:text-foreground transition-colors"
+								>
+									Hono
+								</a>
+								<a
+									href="https://reactrouter.com"
+									target="_blank"
+									rel="noreferrer"
+									className="hover:text-foreground transition-colors"
+								>
+									React Router
+								</a>
+								<a
+									href="https://react.dev/blog/2023/03/22/react-server-components.html"
+									target="_blank"
+									rel="noreferrer"
+									className="hover:text-foreground transition-colors"
+								>
+									RSC
+								</a>
+							</div>
+						</div>
+					</div>
+				</footer>
 			</body>
 		</html>
 	);

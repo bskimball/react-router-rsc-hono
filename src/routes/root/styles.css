@@ -2,14 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-	--color-brand-primary: oklch(0.65 0.2 270);
-	--color-brand-secondary: oklch(0.7 0.15 190);
-	--color-brand-accent: oklch(0.75 0.15 330);
-	--color-background: oklch(0.12 0.015 260);
-	--color-surface: oklch(0.18 0.02 260);
-	--color-surface-elevated: oklch(0.24 0.02 260);
-	--color-foreground: oklch(0.98 0.01 260);
-	--color-foreground-muted: oklch(0.75 0.01 260);
+	--color-brand-primary: oklch(0.6 0.18 260);
+	--color-brand-secondary: oklch(0.65 0.2 200);
+	--color-brand-accent: oklch(0.7 0.15 330);
+	--color-background: oklch(0.1 0.02 260);
+	--color-surface: oklch(0.15 0.02 260);
+	--color-surface-elevated: oklch(0.2 0.02 260);
+	--color-foreground: oklch(0.95 0.01 260);
+	--color-foreground-muted: oklch(0.7 0.02 260);
 	--color-border: oklch(0.25 0.02 260);
 	--color-border-subtle: oklch(0.25 0.02 260 / 0.4);
 

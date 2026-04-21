@@ -75,6 +75,21 @@ If you find yourself repeatedly generating malformed output (e.g., `<<htmlhtml` 
 - Only use `write` for creating new files or complete rewrites
 - When using `write`, verify your output has correct syntax before calling the tool
 
+### edit Tool Requirements
+When calling the `edit` tool, you MUST include:
+1. `path` parameter - The file path to edit (relative or absolute)
+2. `edits` array - Each edit must have:
+   - `oldText` - The exact text to find and replace
+   - `newText` - The replacement text
+
+Example:
+```typescript
+edit({
+  path: "src/file.ts",
+  edits: [{ oldText: "const x = 1;", newText: "const x = 2;" }]
+})
+```
+
 ## Important Notes
 
 - This is **experimental** technology - not recommended for production
