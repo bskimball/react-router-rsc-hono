@@ -16,6 +16,26 @@ Coordinate with other local pi sessions on related codebases. Use `/skill:pi-int
 **Principle:** Prefer `send` for notifications; `ask` only when blocked waiting for input.
 </pi-intercom>
 
+### Preferred Tools for Modifications
+- Use `edit` tool with `oldText`/`newText` for small changes
+- Only use `write` for creating new files or complete rewrites
+- When using `write`, verify your output has correct syntax before calling the tool
+
+### edit Tool Requirements
+When calling the `edit` tool, you MUST include:
+1. `path` parameter - The file path to edit (relative or absolute)
+2. `edits` array - Each edit must have:
+   - `oldText` - The exact text to find and replace
+   - `newText` - The replacement text
+
+Example:
+```typescript
+edit({
+  path: "src/file.ts",
+  edits: [{ oldText: "const x = 1;", newText: "const x = 2;" }]
+})
+```
+
 ## Tech Stack
 
 - **React Router 7** with React Server Components (RSC)
@@ -70,10 +90,6 @@ If you find yourself repeatedly generating malformed output (e.g., `<<htmlhtml` 
 - Never double tags like `<<htmlhtml>` or `<<divdiv>`
 - If you catch yourself doing this, delegate to a subagent with fresh context
 
-### Preferred Tools for Modifications
-- Use `edit` tool with `oldText`/`newText` for small changes
-- Only use `write` for creating new files or complete rewrites
-- When using `write`, verify your output has correct syntax before calling the tool
 
 ## Important Notes
 

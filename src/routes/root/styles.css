@@ -1,55 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
-	--color-brand-primary: oklch(0.65 0.2 270);
-	--color-brand-secondary: oklch(0.7 0.15 190);
-	--color-brand-accent: oklch(0.75 0.15 330);
-	--color-background: oklch(0.12 0.015 260);
-	--color-surface: oklch(0.18 0.02 260);
-	--color-surface-elevated: oklch(0.24 0.02 260);
-	--color-foreground: oklch(0.98 0.01 260);
-	--color-foreground-muted: oklch(0.75 0.01 260);
-	--color-border: oklch(0.25 0.02 260);
-	--color-border-subtle: oklch(0.25 0.02 260 / 0.4);
+	/* Modern Bauhaus Palette */
+	--color-bg-cream: #f4f4f0;
+	--color-bauhaus-red: #e32636;
+	--color-bauhaus-blue: #1c3aa9;
+	--color-bauhaus-yellow: #f8e026;
+	--color-bauhaus-black: #111111;
+	--color-bauhaus-white: #ffffff;
+	--color-bauhaus-gray: #e0e0e0;
+	--color-bauhaus-darkgray: #666666;
 
-	--font-sans: "Inter", system-ui, -apple-system, sans-serif;
+	/* Semantic mapping */
+	--color-background: var(--color-bg-cream);
+	--color-surface: var(--color-bauhaus-white);
+	--color-text-primary: var(--color-bauhaus-black);
+	--color-text-secondary: var(--color-bauhaus-darkgray);
+	--color-border: var(--color-bauhaus-black);
+
+	/* Shorthands for Tailwind v4 */
+	--color-red: var(--color-bauhaus-red);
+	--color-blue: var(--color-bauhaus-blue);
+	--color-yellow: var(--color-bauhaus-yellow);
+	--color-black: var(--color-bauhaus-black);
+	--color-cream: var(--color-bg-cream);
+
+	/* Typography */
+	--font-display: "Space Grotesk", sans-serif;
+	--font-heading: "Space Grotesk", sans-serif;
+	--font-body: "Inter", sans-serif;
+	--font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
+	html {
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+
 	body {
-		@apply bg-background text-foreground antialiased;
+		@apply bg-background text-text-primary antialiased;
+		font-family: var(--font-body);
+		background-image: radial-gradient(var(--color-bauhaus-gray) 1px, transparent 1px);
+		background-size: 24px 24px;
+		background-attachment: fixed;
+		min-height: 100vh;
+	}
+
+	/* Selection styling */
+	::selection {
+		background: var(--color-bauhaus-yellow);
+		color: var(--color-bauhaus-black);
 	}
 }
 
 @layer utilities {
-	.bg-brand-gradient {
-		background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+	.font-display {
+		font-family: var(--font-display);
 	}
-	.text-brand-gradient {
-		background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
+	.font-heading {
+		font-family: var(--font-heading);
 	}
-	.text-brand-gradient-accent {
-		background: linear-gradient(135deg, var(--color-brand-secondary), var(--color-brand-accent));
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
+	.font-body {
+		font-family: var(--font-body);
 	}
-	.glass {
-		backdrop-filter: blur(12px);
-		background-color: color-mix(in srgb, var(--color-surface), transparent 30%);
-		border: 1px solid var(--color-border-subtle);
+	.font-mono {
+		font-family: var(--font-mono);
 	}
-	.glass-strong {
-		backdrop-filter: blur(20px);
-		background-color: color-mix(in srgb, var(--color-surface-elevated), transparent 10%);
-		border: 1px solid var(--color-border);
+
+	/* Shared geometric effects */
+	.text-shadow-solid {
+		text-shadow:
+			-2px -2px 0 #111,
+			2px -2px 0 #111,
+			-2px 2px 0 #111,
+			2px 2px 0 #111,
+			6px 6px 0 var(--color-bauhaus-red);
 	}
-	.border-brand-glow {
-		border-color: color-mix(in srgb, var(--color-brand-primary), transparent 50%);
-		box-shadow: 0 0 20px -5px var(--color-brand-primary);
+
+	/* Bauhaus structural elements */
+	.bauhaus-card {
+		background: var(--color-bauhaus-white);
+		border: 3px solid var(--color-bauhaus-black);
+		box-shadow: 8px 8px 0px 0px var(--color-bauhaus-black);
+		border-radius: 0;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.bauhaus-card:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 10px 10px 0px 0px var(--color-bauhaus-black);
+	}
+
+	.bauhaus-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--color-bauhaus-white);
+		border: 3px solid var(--color-bauhaus-black);
+		box-shadow: 4px 4px 0px 0px var(--color-bauhaus-black);
+		font-family: var(--font-heading);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: 0.75rem 1.5rem;
+		transition: all 0.1s ease-in-out;
+		cursor: pointer;
+	}
+
+	.bauhaus-button:active {
+		transform: translate(4px, 4px);
+		box-shadow: 0px 0px 0px 0px var(--color-bauhaus-black);
+	}
+
+	.bauhaus-button-primary {
+		background: var(--color-bauhaus-red);
+		color: var(--color-bauhaus-white);
+	}
+
+	.bauhaus-button-secondary {
+		background: var(--color-bauhaus-yellow);
+		color: var(--color-bauhaus-black);
+	}
+
+	/* Shapes */
+	.shape-circle {
+		border-radius: 50%;
+	}
+
+	.shape-semi-circle-top {
+		border-radius: 500px 500px 0 0;
+	}
+
+	.shape-semi-circle-bottom {
+		border-radius: 0 0 500px 500px;
+	}
+
+	.shape-triangle {
+		clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	}
+
+	/* Code block styling */
+	.bauhaus-code {
+		background: var(--color-bauhaus-white);
+		border: 3px solid var(--color-bauhaus-black);
+		box-shadow: 6px 6px 0px 0px var(--color-bauhaus-black);
+	}
+
+	.bauhaus-header {
+		border-bottom: 3px solid var(--color-bauhaus-black);
+		background: var(--color-bauhaus-white);
+	}
+
+	/* Scrollbar styling */
+	::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--color-bg-cream);
+		border-left: 2px solid var(--color-bauhaus-black);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--color-bauhaus-black);
+		border: 2px solid var(--color-bg-cream);
 	}
 }

@@ -17,6 +17,11 @@ export function routes() {
 					path: "about",
 					lazy: () => import("./about/route"),
 				},
+				{
+					id: "style",
+					path: "style",
+					lazy: () => import("./style/route"),
+				},
 			],
 		},
 	] satisfies RSCRouteConfig;
