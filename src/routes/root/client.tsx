@@ -51,9 +51,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 						</div>
 					</div>
 				</header>
-				<div className="relative">
-					{children}
-				</div>
+				<div className="relative">{children}</div>
 			</body>
 		</html>
 	);
