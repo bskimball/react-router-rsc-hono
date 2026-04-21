@@ -189,17 +189,6 @@ export default function Home() {
 									Stack
 								</h1>
 
-								<style>{`
-									.text-shadow-solid {
-										text-shadow: 
-											-2px -2px 0 #111,  
-											2px -2px 0 #111,
-											-2px 2px 0 #111,
-											2px 2px 0 #111,
-											6px 6px 0 var(--color-bauhaus-red);
-									}
-								`}</style>
-
 								<p className="text-xl text-gray-800 font-body mb-10 max-w-lg border-l-8 border-blue pl-6">
 									Build highly functional web applications with <strong>Hono</strong> on the server,{" "}
 									<strong>React Router 7</strong> for routing, and{" "}
@@ -387,7 +376,7 @@ export default async function Home() {
 						<a
 							href="https://github.com"
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							className="bauhaus-button bauhaus-button-primary bg-black text-white hover:bg-yellow hover:text-black text-xl py-4 px-10 inline-flex gap-4"
 						>
 							<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

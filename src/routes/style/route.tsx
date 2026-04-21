@@ -101,16 +101,6 @@ export default function StyleGuide() {
 						<h1 className="font-display font-bold text-6xl uppercase tracking-tighter mb-4">
 							Design <span className="text-white text-shadow-solid">System</span>
 						</h1>
-						<style>{`
-							.text-shadow-solid {
-								text-shadow: 
-									-2px -2px 0 #111,  
-									2px -2px 0 #111,
-									-2px 2px 0 #111,
-									2px 2px 0 #111,
-									6px 6px 0 var(--color-bauhaus-blue);
-							}
-						`}</style>
 						<p className="text-xl text-gray-800 font-body max-w-xl mx-auto font-bold uppercase tracking-widest mt-8">
 							Form follows function. Geometric precision.
 						</p>

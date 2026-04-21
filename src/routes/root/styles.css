@@ -36,7 +36,9 @@
 
 @layer base {
 	html {
-		scroll-behavior: smooth;
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
 	}
 
 	body {
@@ -67,6 +69,16 @@
 	}
 	.font-mono {
 		font-family: var(--font-mono);
+	}
+
+	/* Shared geometric effects */
+	.text-shadow-solid {
+		text-shadow:
+			-2px -2px 0 #111,
+			2px -2px 0 #111,
+			-2px 2px 0 #111,
+			2px 2px 0 #111,
+			6px 6px 0 var(--color-bauhaus-red);
 	}
 
 	/* Bauhaus structural elements */

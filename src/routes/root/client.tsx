@@ -73,7 +73,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 							<a
 								href="https://github.com"
 								target="_blank"
-								rel="noreferrer"
+								rel="noopener noreferrer"
 								className="bauhaus-button bauhaus-button-primary text-xs py-2 px-4 hidden sm:flex"
 							>
 								GitHub
@@ -135,17 +135,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
 								</h3>
 								<ul className="space-y-4 font-bold font-body uppercase text-sm">
 									<li>
-										<a href="https://hono.dev" className="hover:text-blue transition-colors">
+										<a
+											href="https://hono.dev"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="hover:text-blue transition-colors"
+										>
 											Hono Docs
 										</a>
 									</li>
 									<li>
-										<a href="https://reactrouter.com" className="hover:text-blue transition-colors">
+										<a
+											href="https://reactrouter.com"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="hover:text-blue transition-colors"
+										>
 											React Router
 										</a>
 									</li>
 									<li>
-										<a href="https://react.dev" className="hover:text-blue transition-colors">
+										<a
+											href="https://react.dev"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="hover:text-blue transition-colors"
+										>
 											React RSC
 										</a>
 									</li>
