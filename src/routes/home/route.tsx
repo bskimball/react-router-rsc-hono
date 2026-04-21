@@ -9,10 +9,10 @@ function GeoIcon({
 	color: string;
 }) {
 	const colors: Record<string, string> = {
-		red: "bg-[var(--color-bauhaus-red)]",
-		blue: "bg-[var(--color-bauhaus-blue)]",
-		yellow: "bg-[var(--color-bauhaus-yellow)]",
-		black: "bg-[var(--color-bauhaus-black)]",
+		red: "bg-red",
+		blue: "bg-blue",
+		yellow: "bg-yellow",
+		black: "bg-black",
 	};
 
 	const bg = colors[color] || colors.black;
@@ -26,7 +26,7 @@ function GeoIcon({
 			return (
 				<div className="relative w-16 h-16 flex items-center justify-center">
 					<div
-						className={`w-0 h-0 border-l-[32px] border-l-transparent border-r-[32px] border-r-transparent border-b-[56px] ${color === "red" ? "border-b-[var(--color-bauhaus-red)]" : color === "blue" ? "border-b-[var(--color-bauhaus-blue)]" : "border-b-[var(--color-bauhaus-yellow)]"}`}
+						className={`w-0 h-0 border-l-[32px] border-l-transparent border-r-[32px] border-r-transparent border-b-[56px] ${color === "red" ? "border-b-red" : color === "blue" ? "border-b-blue" : "border-b-yellow"}`}
 					/>
 					<svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 64 64">
 						<polygon
@@ -58,6 +58,13 @@ function BauCard({
 	shapeType: "circle" | "square" | "triangle" | "semi";
 	shapeColor: string;
 }) {
+	const barColors: Record<string, string> = {
+		red: "bg-red",
+		blue: "bg-blue",
+		yellow: "bg-yellow",
+		black: "bg-black",
+	};
+
 	return (
 		<div className="bauhaus-card p-8 flex flex-col h-full bg-white relative overflow-hidden group">
 			{/* Decorative background grid pattern */}
@@ -83,7 +90,7 @@ function BauCard({
 
 			{/* Decorative bold bottom border that expands on hover */}
 			<div
-				className={`absolute bottom-0 left-0 h-2 w-full transition-all duration-300 group-hover:h-4 bg-[var(--color-bauhaus-${shapeColor})]`}
+				className={`absolute bottom-0 left-0 h-2 w-full transition-all duration-300 group-hover:h-4 ${barColors[shapeColor] || "bg-black"}`}
 			/>
 		</div>
 	);
@@ -99,6 +106,13 @@ function CodeBlock({
 	title?: string;
 	color?: string;
 }) {
+	const accentColors: Record<string, string> = {
+		red: "bg-red",
+		blue: "bg-blue",
+		yellow: "bg-yellow",
+		black: "bg-black",
+	};
+
 	return (
 		<div className="bauhaus-code rounded-none overflow-hidden relative">
 			{title && (
@@ -107,9 +121,9 @@ function CodeBlock({
 				>
 					<div className="flex items-center gap-3">
 						<div className="flex gap-2">
-							<div className="w-4 h-4 rounded-full bg-[var(--color-bauhaus-red)] border-2 border-black" />
-							<div className="w-4 h-4 rounded-full bg-[var(--color-bauhaus-yellow)] border-2 border-black" />
-							<div className="w-4 h-4 rounded-full bg-[var(--color-bauhaus-blue)] border-2 border-black" />
+							<div className="w-4 h-4 rounded-full bg-red border-2 border-black" />
+							<div className="w-4 h-4 rounded-full bg-yellow border-2 border-black" />
+							<div className="w-4 h-4 rounded-full bg-blue border-2 border-black" />
 						</div>
 						<div className="w-1 h-6 bg-black mx-2" />
 						<span className="text-sm font-heading font-bold uppercase tracking-widest">
@@ -124,7 +138,7 @@ function CodeBlock({
 				</pre>
 			</div>
 			<div
-				className={`absolute left-0 top-0 bottom-0 w-3 bg-[var(--color-bauhaus-${color})] border-r-4 border-black z-10`}
+				className={`absolute left-0 top-0 bottom-0 w-3 border-r-4 border-black z-10 ${accentColors[color] || "bg-blue"}`}
 			/>
 		</div>
 	);
@@ -132,10 +146,17 @@ function CodeBlock({
 
 // Stats Block
 function StatBlock({ value, label, color }: { value: string; label: string; color: string }) {
+	const colors: Record<string, string> = {
+		red: "bg-red",
+		blue: "bg-blue",
+		yellow: "bg-yellow",
+		black: "bg-black",
+	};
+
 	return (
 		<div className={`border-4 border-black bg-white p-6 relative overflow-hidden group`}>
 			<div
-				className={`absolute top-0 right-0 w-16 h-16 bg-[var(--color-bauhaus-${color})] border-l-4 border-b-4 border-black rounded-bl-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500`}
+				className={`absolute top-0 right-0 w-16 h-16 border-l-4 border-b-4 border-black rounded-bl-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500 ${colors[color] || "bg-black"}`}
 			/>
 			<div className="font-display font-bold text-5xl mb-2 relative z-10">{value}</div>
 			<div className="font-heading text-sm uppercase font-bold tracking-widest text-gray-600 relative z-10">
@@ -147,18 +168,18 @@ function StatBlock({ value, label, color }: { value: string; label: string; colo
 
 export default function Home() {
 	return (
-		<div className="relative overflow-hidden min-h-screen selection:bg-[var(--color-bauhaus-yellow)] selection:text-black">
+		<div className="relative overflow-hidden min-h-screen selection:bg-yellow selection:text-black">
 			{/* Decorative geometric background elements */}
 			<div className="fixed top-20 right-10 w-64 h-64 border-8 border-black rounded-full pointer-events-none opacity-10 z-0" />
-			<div className="fixed -bottom-20 -left-20 w-96 h-96 bg-[var(--color-bauhaus-blue)] rounded-full pointer-events-none opacity-5 z-0" />
+			<div className="fixed -bottom-20 -left-20 w-96 h-96 bg-blue rounded-full pointer-events-none opacity-5 z-0" />
 
 			<div className="relative z-10">
 				{/* Hero Section */}
-				<section className="pt-24 pb-20 px-6 border-b-4 border-black bg-[var(--color-bg-cream)]">
+				<section className="pt-24 pb-20 px-6 border-b-4 border-black bg-cream">
 					<div className="max-w-7xl mx-auto">
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 							<div className="order-2 lg:order-1">
-								<div className="inline-block bg-[var(--color-bauhaus-yellow)] border-4 border-black px-4 py-2 font-heading font-bold uppercase tracking-widest text-sm mb-8 shadow-[4px_4px_0px_0px_#111]">
+								<div className="inline-block bg-yellow border-4 border-black px-4 py-2 font-heading font-bold uppercase tracking-widest text-sm mb-8 shadow-[4px_4px_0px_0px_#111]">
 									Form Follows Function
 								</div>
 
@@ -179,7 +200,7 @@ export default function Home() {
 									}
 								`}</style>
 
-								<p className="text-xl text-gray-800 font-body mb-10 max-w-lg border-l-8 border-[var(--color-bauhaus-blue)] pl-6">
+								<p className="text-xl text-gray-800 font-body mb-10 max-w-lg border-l-8 border-blue pl-6">
 									Build highly functional web applications with <strong>Hono</strong> on the server,{" "}
 									<strong>React Router 7</strong> for routing, and{" "}
 									<strong>React Server Components</strong> for zero-JavaScript rendering.
@@ -202,11 +223,11 @@ export default function Home() {
 
 							{/* Hero Composition */}
 							<div className="order-1 lg:order-2 relative h-[500px] w-full hidden md:block">
-								<div className="absolute top-10 right-10 w-64 h-64 bg-[var(--color-bauhaus-yellow)] border-8 border-black rounded-full shadow-[12px_12px_0px_0px_#111] animate-[spin_30s_linear_infinite]" />
+								<div className="absolute top-10 right-10 w-64 h-64 bg-yellow border-8 border-black rounded-full shadow-[12px_12px_0px_0px_#111] animate-[spin_30s_linear_infinite]" />
 
-								<div className="absolute bottom-20 left-10 w-72 h-72 bg-[var(--color-bauhaus-red)] border-8 border-black shadow-[12px_12px_0px_0px_#111]" />
+								<div className="absolute bottom-20 left-10 w-72 h-72 bg-red border-8 border-black shadow-[12px_12px_0px_0px_#111]" />
 
-								<div className="absolute top-40 left-32 w-0 h-0 border-l-[120px] border-l-transparent border-r-[120px] border-r-transparent border-b-[200px] border-b-[var(--color-bauhaus-blue)] filter drop-shadow-[12px_12px_0px_#111]" />
+								<div className="absolute top-40 left-32 w-0 h-0 border-l-[120px] border-l-transparent border-r-[120px] border-r-transparent border-b-[200px] border-b-blue filter drop-shadow-[12px_12px_0px_#111]" />
 
 								<div className="absolute bottom-40 right-20 bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_#111] font-mono text-sm font-bold rotate-6">
 									{"<RSC />"} + Hono
@@ -217,7 +238,7 @@ export default function Home() {
 				</section>
 
 				{/* Stats Strip */}
-				<section className="border-b-4 border-black bg-[var(--color-bg-cream)]">
+				<section className="border-b-4 border-black bg-cream">
 					<div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto divide-y-4 md:divide-y-0 md:divide-x-4 divide-black border-l-4 border-r-4 border-black my-0">
 						<StatBlock value="0kb" label="Client JS for static" color="yellow" />
 						<StatBlock value="100%" label="Type-safe E2E" color="blue" />
@@ -226,7 +247,7 @@ export default function Home() {
 				</section>
 
 				{/* Features - The Three Pillars */}
-				<section className="py-24 px-6 bg-[var(--color-bg-cream)] border-b-4 border-black relative overflow-hidden">
+				<section className="py-24 px-6 bg-cream border-b-4 border-black relative overflow-hidden">
 					{/* Background diagonal stripes */}
 					<div
 						className="absolute inset-0 opacity-5 pointer-events-none"
@@ -239,7 +260,7 @@ export default function Home() {
 					<div className="max-w-7xl mx-auto relative z-10">
 						<div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
 							<div>
-								<div className="w-16 h-4 bg-[var(--color-bauhaus-red)] mb-4 border-2 border-black" />
+								<div className="w-16 h-4 bg-red mb-4 border-2 border-black" />
 								<h2 className="font-display font-bold text-5xl uppercase tracking-tight">
 									Core <br />
 									Principles
@@ -279,9 +300,9 @@ export default function Home() {
 					<div className="max-w-7xl mx-auto">
 						<div className="text-center mb-16">
 							<div className="inline-flex justify-center items-center gap-4 mb-6">
-								<div className="w-8 h-8 bg-[var(--color-bauhaus-red)] rounded-full border-2 border-black" />
-								<div className="w-8 h-8 bg-[var(--color-bauhaus-yellow)] border-2 border-black" />
-								<div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[28px] border-b-[var(--color-bauhaus-blue)]" />
+								<div className="w-8 h-8 bg-red rounded-full border-2 border-black" />
+								<div className="w-8 h-8 bg-yellow border-2 border-black" />
+								<div className="w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[28px] border-b-blue" />
 							</div>
 							<h2 className="font-display font-bold text-5xl uppercase tracking-tight mb-4">
 								Functional Syntax
@@ -291,7 +312,7 @@ export default function Home() {
 
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 							<div className="relative">
-								<div className="absolute -left-4 -top-4 w-full h-full bg-[var(--color-bauhaus-blue)] border-4 border-black" />
+								<div className="absolute -left-4 -top-4 w-full h-full bg-blue border-4 border-black" />
 								<div className="relative h-full">
 									<CodeBlock
 										title="server.ts"
@@ -318,7 +339,7 @@ export default app;`}
 							</div>
 
 							<div className="relative mt-8 lg:mt-0">
-								<div className="absolute -right-4 -bottom-4 w-full h-full bg-[var(--color-bauhaus-yellow)] border-4 border-black" />
+								<div className="absolute -right-4 -bottom-4 w-full h-full bg-yellow border-4 border-black" />
 								<div className="relative h-full">
 									<CodeBlock
 										title="routes/home.tsx"
@@ -347,11 +368,11 @@ export default async function Home() {
 				</section>
 
 				{/* CTA Section */}
-				<section className="py-32 px-6 bg-[var(--color-bauhaus-red)] border-b-4 border-black relative overflow-hidden">
+				<section className="py-32 px-6 bg-red border-b-4 border-black relative overflow-hidden">
 					{/* Abstract shapes */}
 					<div className="absolute -right-20 -top-20 w-96 h-96 rounded-full border-[32px] border-white opacity-20 pointer-events-none" />
-					<div className="absolute -left-10 bottom-10 w-48 h-48 bg-[var(--color-bauhaus-yellow)] border-8 border-black shadow-[16px_16px_0px_0px_#111] rotate-12 pointer-events-none" />
-					<div className="absolute right-1/4 bottom-0 w-0 h-0 border-l-[100px] border-l-transparent border-r-[100px] border-r-transparent border-b-[180px] border-b-[var(--color-bauhaus-blue)] filter drop-shadow-[16px_16px_0px_#111] pointer-events-none" />
+					<div className="absolute -left-10 bottom-10 w-48 h-48 bg-yellow border-8 border-black shadow-[16px_16px_0px_0px_#111] rotate-12 pointer-events-none" />
+					<div className="absolute right-1/4 bottom-0 w-0 h-0 border-l-[100px] border-l-transparent border-r-[100px] border-r-transparent border-b-[180px] border-b-blue filter drop-shadow-[16px_16px_0px_#111] pointer-events-none" />
 
 					<div className="max-w-4xl mx-auto text-center relative z-10 bg-white border-4 border-black p-12 md:p-20 shadow-[16px_16px_0px_0px_#111]">
 						<h2 className="font-display font-bold text-5xl md:text-6xl uppercase tracking-tighter mb-6">
@@ -367,7 +388,7 @@ export default async function Home() {
 							href="https://github.com"
 							target="_blank"
 							rel="noreferrer"
-							className="bauhaus-button bauhaus-button-primary bg-black text-white hover:bg-[var(--color-bauhaus-yellow)] hover:text-black text-xl py-4 px-10 inline-flex gap-4"
+							className="bauhaus-button bauhaus-button-primary bg-black text-white hover:bg-yellow hover:text-black text-xl py-4 px-10 inline-flex gap-4"
 						>
 							<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
 								<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />

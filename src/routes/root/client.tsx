@@ -31,7 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 							<Link to="/" className="flex items-center gap-4 group">
 								<BauhausLogo className="w-10 h-10 transition-transform group-hover:rotate-90 duration-500" />
 								<span className="font-display font-bold text-2xl uppercase tracking-tighter hidden sm:block text-black">
-									RR<span className="text-[var(--color-bauhaus-red)]">•</span>RSC
+									RR<span className="text-red">•</span>RSC
 								</span>
 							</Link>
 							<nav className="hidden md:block">
@@ -39,28 +39,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
 									<li>
 										<NavLink
 											to="/"
-											className="hover:text-[var(--color-bauhaus-blue)] transition-colors relative group aria-[current]:text-[var(--color-bauhaus-blue)]"
+											className="hover:text-blue transition-colors relative group aria-[current]:text-blue"
 										>
 											Home
-											<span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--color-bauhaus-blue)] transition-all group-hover:w-full group-aria-[current]:w-full" />
+											<span className="absolute -bottom-2 left-0 w-0 h-1 bg-blue transition-all group-hover:w-full group-aria-[current]:w-full" />
 										</NavLink>
 									</li>
 									<li>
 										<NavLink
 											to="/about"
-											className="hover:text-[var(--color-bauhaus-red)] transition-colors relative group aria-[current]:text-[var(--color-bauhaus-red)]"
+											className="hover:text-red transition-colors relative group aria-[current]:text-red"
 										>
 											About
-											<span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--color-bauhaus-red)] transition-all group-hover:w-full group-aria-[current]:w-full" />
+											<span className="absolute -bottom-2 left-0 w-0 h-1 bg-red transition-all group-hover:w-full group-aria-[current]:w-full" />
 										</NavLink>
 									</li>
 									<li>
 										<NavLink
 											to="/style"
-											className="hover:text-[var(--color-bauhaus-yellow)] transition-colors relative group aria-[current]:text-[var(--color-bauhaus-yellow)]"
+											className="hover:text-yellow transition-colors relative group aria-[current]:text-yellow"
 										>
 											Style Guide
-											<span className="absolute -bottom-2 left-0 w-0 h-1 bg-[var(--color-bauhaus-yellow)] transition-all group-hover:w-full group-aria-[current]:w-full" />
+											<span className="absolute -bottom-2 left-0 w-0 h-1 bg-yellow transition-all group-hover:w-full group-aria-[current]:w-full" />
 										</NavLink>
 									</li>
 								</ul>
@@ -68,7 +68,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 						</div>
 						<div className="flex items-center gap-4">
 							{navigation.state !== "idle" && (
-								<div className="h-6 w-6 border-4 border-black border-t-[var(--color-bauhaus-red)] rounded-full animate-spin" />
+								<div className="h-6 w-6 border-4 border-black border-t-red rounded-full animate-spin" />
 							)}
 							<a
 								href="https://github.com"
@@ -85,12 +85,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<main className="relative z-10">{children}</main>
 
 				{/* Global Bauhaus Footer */}
-				<footer className="bg-black text-white py-16 px-6 mt-auto">
+				<footer className="bg-black text-white py-16 mt-auto">
 					<div className="max-w-7xl mx-auto">
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t-8 border-white pt-12">
 							<div className="lg:col-span-2">
 								<Link to="/" className="flex items-center gap-3 mb-6 inline-flex">
-									<div className="w-8 h-8 bg-[var(--color-bauhaus-yellow)] border-2 border-white" />
+									<div className="w-8 h-8 bg-yellow border-2 border-white" />
 									<span className="font-display font-bold text-2xl uppercase tracking-tighter">
 										RR•RSC
 									</span>
@@ -100,9 +100,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 									Router, and React Server Components.
 								</p>
 								<div className="flex gap-4">
-									<div className="w-12 h-12 bg-[var(--color-bauhaus-red)] border-2 border-white rounded-full" />
-									<div className="w-12 h-12 bg-[var(--color-bauhaus-blue)] border-2 border-white" />
-									<div className="w-12 h-12 bg-[var(--color-bauhaus-yellow)] border-2 border-white rounded-tr-[24px]" />
+									<div className="w-12 h-12 bg-red border-2 border-white rounded-full" />
+									<div className="w-12 h-12 bg-blue border-2 border-white" />
+									<div className="w-12 h-12 bg-yellow border-2 border-white rounded-tr-[24px]" />
 								</div>
 							</div>
 
@@ -112,26 +112,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 								</h3>
 								<ul className="space-y-4 font-bold font-body uppercase text-sm">
 									<li>
-										<Link
-											to="/"
-											className="hover:text-[var(--color-bauhaus-yellow)] transition-colors"
-										>
+										<Link to="/" className="hover:text-yellow transition-colors">
 											Home
 										</Link>
 									</li>
 									<li>
-										<Link
-											to="/about"
-											className="hover:text-[var(--color-bauhaus-yellow)] transition-colors"
-										>
+										<Link to="/about" className="hover:text-yellow transition-colors">
 											About Stack
 										</Link>
 									</li>
 									<li>
-										<Link
-											to="/style"
-											className="hover:text-[var(--color-bauhaus-yellow)] transition-colors"
-										>
+										<Link to="/style" className="hover:text-yellow transition-colors">
 											Design System
 										</Link>
 									</li>
@@ -144,26 +135,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 								</h3>
 								<ul className="space-y-4 font-bold font-body uppercase text-sm">
 									<li>
-										<a
-											href="https://hono.dev"
-											className="hover:text-[var(--color-bauhaus-blue)] transition-colors"
-										>
+										<a href="https://hono.dev" className="hover:text-blue transition-colors">
 											Hono Docs
 										</a>
 									</li>
 									<li>
-										<a
-											href="https://reactrouter.com"
-											className="hover:text-[var(--color-bauhaus-blue)] transition-colors"
-										>
+										<a href="https://reactrouter.com" className="hover:text-blue transition-colors">
 											React Router
 										</a>
 									</li>
 									<li>
-										<a
-											href="https://react.dev"
-											className="hover:text-[var(--color-bauhaus-blue)] transition-colors"
-										>
+										<a href="https://react.dev" className="hover:text-blue transition-colors">
 											React RSC
 										</a>
 									</li>
@@ -194,7 +176,7 @@ export function ErrorBoundary() {
 	return (
 		<main className="mx-auto max-w-7xl px-4 py-24 lg:py-32">
 			<div className="bauhaus-card bg-white p-12 lg:p-20 text-center relative overflow-hidden">
-				<div className="absolute top-0 left-0 w-24 h-24 bg-[var(--color-bauhaus-red)] border-b-4 border-r-4 border-black" />
+				<div className="absolute top-0 left-0 w-24 h-24 bg-red border-b-4 border-r-4 border-black" />
 				<h1 className="text-9xl font-display font-bold text-black mb-4 relative z-10">{status}</h1>
 				<p className="mt-4 text-2xl font-heading font-bold uppercase tracking-tight text-black mb-12 relative z-10">
 					{message}
@@ -204,7 +186,7 @@ export function ErrorBoundary() {
 						Return to System
 					</Link>
 				</div>
-				<div className="absolute bottom-0 right-0 w-32 h-32 bg-[var(--color-bauhaus-yellow)] rounded-full border-t-4 border-l-4 border-black translate-x-1/2 translate-y-1/2" />
+				<div className="absolute bottom-0 right-0 w-32 h-32 bg-yellow rounded-full border-t-4 border-l-4 border-black translate-x-1/2 translate-y-1/2" />
 			</div>
 		</main>
 	);

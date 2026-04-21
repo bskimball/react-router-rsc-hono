@@ -20,6 +20,13 @@
 	--color-text-secondary: var(--color-bauhaus-darkgray);
 	--color-border: var(--color-bauhaus-black);
 
+	/* Shorthands for Tailwind v4 */
+	--color-red: var(--color-bauhaus-red);
+	--color-blue: var(--color-bauhaus-blue);
+	--color-yellow: var(--color-bauhaus-yellow);
+	--color-black: var(--color-bauhaus-black);
+	--color-cream: var(--color-bg-cream);
+
 	/* Typography */
 	--font-display: "Space Grotesk", sans-serif;
 	--font-heading: "Space Grotesk", sans-serif;

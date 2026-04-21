@@ -51,7 +51,7 @@ function TypeSpecimen({
 				</div>
 			</div>
 			<div className="space-y-2">
-				<div className="font-heading font-bold text-lg uppercase tracking-tight text-[var(--color-bauhaus-red)]">
+				<div className="font-heading font-bold text-lg uppercase tracking-tight text-red">
 					{name}
 				</div>
 				<div className="text-sm text-gray-700 font-body leading-relaxed">{usage}</div>
@@ -78,7 +78,7 @@ function ComponentShowcase({ title, children }: { title: string; children: React
 
 export default function StyleGuide() {
 	return (
-		<div className="relative overflow-hidden min-h-screen selection:bg-[var(--color-bauhaus-yellow)] selection:text-black">
+		<div className="relative overflow-hidden min-h-screen selection:bg-yellow selection:text-black">
 			{/* Decorative grid */}
 			<div
 				className="fixed inset-0 pointer-events-none opacity-[0.03] z-0"
@@ -91,12 +91,12 @@ export default function StyleGuide() {
 
 			<div className="relative z-10">
 				{/* Hero */}
-				<section className="pt-24 pb-20 px-6 bg-[var(--color-bg-cream)] border-b-4 border-black">
+				<section className="pt-24 pb-20 px-6 bg-cream border-b-4 border-black">
 					<div className="max-w-7xl mx-auto text-center">
 						<div className="flex justify-center gap-4 mb-8">
-							<div className="w-10 h-10 bg-[var(--color-bauhaus-red)] border-4 border-black" />
-							<div className="w-10 h-10 bg-[var(--color-bauhaus-blue)] border-4 border-black rounded-full" />
-							<div className="w-10 h-10 bg-[var(--color-bauhaus-yellow)] border-4 border-black rotate-45" />
+							<div className="w-10 h-10 bg-red border-4 border-black" />
+							<div className="w-10 h-10 bg-blue border-4 border-black rounded-full" />
+							<div className="w-10 h-10 bg-yellow border-4 border-black rotate-45" />
 						</div>
 						<h1 className="font-display font-bold text-6xl uppercase tracking-tighter mb-4">
 							Design <span className="text-white text-shadow-solid">System</span>
@@ -120,15 +120,15 @@ export default function StyleGuide() {
 				<main className="max-w-7xl mx-auto px-6 py-24 space-y-32">
 					{/* Philosophy */}
 					<section>
-						<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-l-8 border-[var(--color-bauhaus-red)] pl-6">
+						<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-l-8 border-red pl-6">
 							Philosophy
 						</h2>
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 							<div className="font-body text-xl leading-relaxed text-black font-medium">
 								<p className="mb-6">
 									Our design system is rooted in the{" "}
-									<strong className="text-[var(--color-bauhaus-blue)]">Bauhaus tradition</strong>: a
-									focus on clarity, efficiency, and the beauty of structural mechanics.
+									<strong className="text-blue">Bauhaus tradition</strong>: a focus on clarity,
+									efficiency, and the beauty of structural mechanics.
 								</p>
 								<p>
 									We reject unnecessary decoration. Every element serves a functional purpose,
@@ -136,8 +136,8 @@ export default function StyleGuide() {
 								</p>
 							</div>
 							<div className="relative h-64 bg-white border-4 border-black shadow-[16px_16px_0px_0px_#111] overflow-hidden">
-								<div className="absolute top-10 left-10 w-32 h-32 bg-[var(--color-bauhaus-yellow)] border-4 border-black rounded-full" />
-								<div className="absolute bottom-10 right-10 w-40 h-12 bg-[var(--color-bauhaus-red)] border-4 border-black" />
+								<div className="absolute top-10 left-10 w-32 h-32 bg-yellow border-4 border-black rounded-full" />
+								<div className="absolute bottom-10 right-10 w-40 h-12 bg-red border-4 border-black" />
 								<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-full bg-black" />
 							</div>
 						</div>
@@ -145,7 +145,7 @@ export default function StyleGuide() {
 
 					{/* Color Palette */}
 					<section>
-						<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-l-8 border-[var(--color-bauhaus-blue)] pl-6">
+						<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-l-8 border-blue pl-6">
 							Primary Colors
 						</h2>
 						<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
@@ -174,7 +174,7 @@ export default function StyleGuide() {
 
 					{/* Typography */}
 					<section>
-						<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-l-8 border-[var(--color-bauhaus-yellow)] pl-6">
+						<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-l-8 border-yellow pl-6">
 							Typography
 						</h2>
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -225,7 +225,7 @@ export default function StyleGuide() {
 									<input
 										type="text"
 										placeholder="Input field..."
-										className="w-full px-4 py-3 bg-white border-4 border-black focus:outline-none focus:bg-[var(--color-bauhaus-yellow)] transition-colors font-heading font-bold uppercase tracking-tight"
+										className="w-full px-4 py-3 bg-white border-4 border-black focus:outline-none focus:bg-yellow transition-colors font-heading font-bold uppercase tracking-tight"
 									/>
 									<select className="w-full px-4 py-3 bg-white border-4 border-black focus:outline-none font-heading font-bold uppercase tracking-tight">
 										<option>Option One</option>
@@ -236,7 +236,7 @@ export default function StyleGuide() {
 
 							<ComponentShowcase title="Cards">
 								<div className="bauhaus-card p-6 bg-white relative">
-									<div className="absolute top-0 left-0 w-2 h-full bg-[var(--color-bauhaus-red)]" />
+									<div className="absolute top-0 left-0 w-2 h-full bg-red" />
 									<h4 className="font-heading font-bold text-xl uppercase mb-2">Card Title</h4>
 									<p className="font-body text-sm text-gray-600">
 										Basic component structure with structural emphasis.
@@ -246,13 +246,13 @@ export default function StyleGuide() {
 
 							<ComponentShowcase title="Functional Badges">
 								<div className="flex flex-wrap gap-4">
-									<span className="bg-[var(--color-bauhaus-red)] text-white px-3 py-1 font-heading font-bold text-xs uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_#111]">
+									<span className="bg-red text-white px-3 py-1 font-heading font-bold text-xs uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_#111]">
 										Red Alert
 									</span>
-									<span className="bg-[var(--color-bauhaus-blue)] text-white px-3 py-1 font-heading font-bold text-xs uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_#111]">
+									<span className="bg-blue text-white px-3 py-1 font-heading font-bold text-xs uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_#111]">
 										Blue Link
 									</span>
-									<span className="bg-[var(--color-bauhaus-yellow)] text-black px-3 py-1 font-heading font-bold text-xs uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_#111]">
+									<span className="bg-yellow text-black px-3 py-1 font-heading font-bold text-xs uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_#111]">
 										Yellow Info
 									</span>
 								</div>
@@ -266,12 +266,12 @@ export default function StyleGuide() {
 							Grid Composition
 						</h2>
 						<div className="grid grid-cols-12 grid-rows-3 h-[400px] border-4 border-black bg-white">
-							<div className="col-span-8 row-span-2 border-r-4 border-b-4 border-black bg-[var(--color-bg-cream)] p-8">
-								<div className="w-16 h-16 bg-[var(--color-bauhaus-red)] border-4 border-black rounded-full" />
+							<div className="col-span-8 row-span-2 border-r-4 border-b-4 border-black bg-cream p-8">
+								<div className="w-16 h-16 bg-red border-4 border-black rounded-full" />
 							</div>
-							<div className="col-span-4 border-b-4 border-black bg-[var(--color-bauhaus-blue)]" />
+							<div className="col-span-4 border-b-4 border-black bg-blue" />
 							<div className="col-span-4 border-b-4 border-black bg-white" />
-							<div className="col-span-2 border-r-4 border-black bg-[var(--color-bauhaus-yellow)]" />
+							<div className="col-span-2 border-r-4 border-black bg-yellow" />
 							<div className="col-span-6 border-r-4 border-black bg-black" />
 							<div className="col-span-4 bg-white" />
 						</div>

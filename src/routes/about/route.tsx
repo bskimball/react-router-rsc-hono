@@ -1,7 +1,14 @@
 function ImprintNumber({ number, color }: { number: number; color: string }) {
+	const colors: Record<string, string> = {
+		red: "bg-red",
+		blue: "bg-blue",
+		yellow: "bg-yellow",
+		black: "bg-black",
+	};
+
 	return (
 		<div
-			className={`flex-shrink-0 w-12 h-12 border-4 border-black flex items-center justify-center font-display font-bold text-xl bg-[var(--color-bauhaus-${color})] shadow-[4px_4px_0px_0px_#111]`}
+			className={`flex-shrink-0 w-12 h-12 border-4 border-black flex items-center justify-center font-display font-bold text-xl ${colors[color] || "bg-black"} shadow-[4px_4px_0px_0px_#111]`}
 		>
 			{number}
 		</div>
@@ -19,9 +26,16 @@ function ArchitectureCard({
 	tag?: string;
 	color: string;
 }) {
+	const barColors: Record<string, string> = {
+		red: "bg-red",
+		blue: "bg-blue",
+		yellow: "bg-yellow",
+		black: "bg-black",
+	};
+
 	return (
 		<div className="bauhaus-card p-8 bg-white relative group">
-			<div className={`absolute top-0 left-0 w-2 h-full bg-[var(--color-bauhaus-${color})]`} />
+			<div className={`absolute top-0 left-0 w-2 h-full ${barColors[color] || "bg-black"}`} />
 			<div className="flex items-center justify-between mb-4">
 				<h3 className="font-heading font-bold text-2xl uppercase tracking-tight">{title}</h3>
 				{tag && (
@@ -37,22 +51,22 @@ function ArchitectureCard({
 
 export default function About() {
 	return (
-		<div className="relative overflow-hidden min-h-screen selection:bg-[var(--color-bauhaus-yellow)] selection:text-black">
+		<div className="relative overflow-hidden min-h-screen selection:bg-yellow selection:text-black">
 			{/* Decorative geometric background elements */}
 			<div className="fixed top-40 left-10 w-48 h-48 border-8 border-black pointer-events-none opacity-5 z-0" />
-			<div className="fixed bottom-40 right-10 w-64 h-64 bg-[var(--color-bauhaus-red)] rounded-full pointer-events-none opacity-5 z-0" />
+			<div className="fixed bottom-40 right-10 w-64 h-64 bg-red rounded-full pointer-events-none opacity-5 z-0" />
 
 			<div className="relative z-10">
 				{/* Hero */}
-				<section className="pt-24 pb-16 px-6 bg-[var(--color-bg-cream)] border-b-4 border-black">
+				<section className="pt-24 pb-16 px-6 bg-cream border-b-4 border-black">
 					<div className="max-w-4xl mx-auto text-center">
 						<div className="inline-flex gap-4 mb-8">
-							<div className="w-6 h-6 bg-[var(--color-bauhaus-red)] rounded-full border-2 border-black" />
-							<div className="w-6 h-6 bg-[var(--color-bauhaus-blue)] border-2 border-black" />
-							<div className="w-6 h-6 bg-[var(--color-bauhaus-yellow)] border-2 border-black" />
+							<div className="w-6 h-6 bg-red rounded-full border-2 border-black" />
+							<div className="w-6 h-6 bg-blue border-2 border-black" />
+							<div className="w-6 h-6 bg-yellow border-2 border-black" />
 						</div>
 						<h1 className="font-display font-bold text-5xl sm:text-6xl uppercase tracking-tighter mb-8">
-							The <span className="text-[var(--color-bauhaus-blue)]">Foundation</span>
+							The <span className="text-blue">Foundation</span>
 						</h1>
 						<p className="text-xl text-gray-800 font-body max-w-2xl mx-auto leading-relaxed border-t-4 border-black pt-8">
 							A production-ready architecture built on functional principles. We've stripped away
@@ -92,10 +106,10 @@ export default function About() {
 				</section>
 
 				{/* How It Works */}
-				<section className="py-24 px-6 bg-[var(--color-bg-cream)] border-b-4 border-black">
+				<section className="py-24 px-6 bg-cream border-b-4 border-black">
 					<div className="max-w-4xl mx-auto">
 						<div className="bauhaus-card bg-white p-8 md:p-16">
-							<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-b-8 border-[var(--color-bauhaus-red)] pb-4 inline-block">
+							<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-b-8 border-red pb-4 inline-block">
 								Operational Flow
 							</h2>
 
@@ -173,7 +187,7 @@ export default function About() {
 							].map((item) => (
 								<div key={item.title} className="bauhaus-card p-8 text-center group bg-white">
 									<div
-										className={`text-5xl mb-6 transition-transform group-hover:scale-125 duration-300 inline-block text-[var(--color-bauhaus-${item.color === "black" ? "red" : item.color})]`}
+										className={`text-5xl mb-6 transition-transform group-hover:scale-125 duration-300 inline-block ${item.color === "blue" ? "text-blue" : item.color === "yellow" ? "text-yellow" : "text-red"}`}
 									>
 										{item.icon}
 									</div>
@@ -187,10 +201,10 @@ export default function About() {
 				</section>
 
 				{/* Getting Started */}
-				<section className="py-24 px-6 bg-[var(--color-bauhaus-blue)]">
+				<section className="py-24 px-6 bg-blue">
 					<div className="max-w-4xl mx-auto">
 						<div className="bauhaus-card bg-white p-8 md:p-12 relative overflow-hidden">
-							<div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-bauhaus-yellow)] -translate-y-1/2 translate-x-1/2 rotate-45 border-4 border-black" />
+							<div className="absolute top-0 right-0 w-32 h-32 bg-yellow -translate-y-1/2 translate-x-1/2 rotate-45 border-4 border-black" />
 
 							<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-8">
 								Commence
