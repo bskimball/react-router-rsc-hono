@@ -1,192 +1,215 @@
+function ImprintNumber({ number, color }: { number: number; color: string }) {
+	return (
+		<div
+			className={`flex-shrink-0 w-12 h-12 border-4 border-black flex items-center justify-center font-display font-bold text-xl bg-[var(--color-bauhaus-${color})] shadow-[4px_4px_0px_0px_#111]`}
+		>
+			{number}
+		</div>
+	);
+}
+
+function ArchitectureCard({
+	title,
+	description,
+	tag,
+	color,
+}: {
+	title: string;
+	description: string;
+	tag?: string;
+	color: string;
+}) {
+	return (
+		<div className="bauhaus-card p-8 bg-white relative group">
+			<div className={`absolute top-0 left-0 w-2 h-full bg-[var(--color-bauhaus-${color})]`} />
+			<div className="flex items-center justify-between mb-4">
+				<h3 className="font-heading font-bold text-2xl uppercase tracking-tight">{title}</h3>
+				{tag && (
+					<span className="px-3 py-1 text-xs font-heading font-bold uppercase tracking-widest bg-black text-white">
+						{tag}
+					</span>
+				)}
+			</div>
+			<p className="text-gray-700 leading-relaxed font-body">{description}</p>
+		</div>
+	);
+}
+
 export default function About() {
 	return (
-		<div className="relative overflow-hidden">
-			{/* Decorative background */}
-			<div className="absolute top-0 right-0 -z-10 w-1/2 h-1/2 bg-brand-secondary/5 blur-[120px] rounded-full" />
+		<div className="relative overflow-hidden min-h-screen selection:bg-[var(--color-bauhaus-yellow)] selection:text-black">
+			{/* Decorative geometric background elements */}
+			<div className="fixed top-40 left-10 w-48 h-48 border-8 border-black pointer-events-none opacity-5 z-0" />
+			<div className="fixed bottom-40 right-10 w-64 h-64 bg-[var(--color-bauhaus-red)] rounded-full pointer-events-none opacity-5 z-0" />
 
-			<main className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-				{/* Header */}
-				<section className="text-center mb-16">
-					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-gradient">
-						About This Template
-					</h1>
-					<p className="mt-4 text-lg text-foreground-muted max-w-2xl mx-auto">
-						A production-ready starter for building modern web applications with Hono, React Router,
-						and React Server Components.
-					</p>
-				</section>
-
-				{/* Architecture Overview */}
-				<section className="mb-16">
-					<div className="glass rounded-2xl p-8 lg:p-12">
-						<h2 className="text-2xl font-semibold text-foreground mb-6">Architecture</h2>
-						<div className="space-y-6 text-foreground-muted leading-relaxed">
-							<p>
-								This template combines three powerful technologies to create a modern, efficient web
-								application stack:
-							</p>
-
-							<ul className="space-y-4 ml-4">
-								<li className="flex items-start gap-3">
-									<span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2 flex-shrink-0" />
-									<span>
-										<strong className="text-foreground">Hono</strong> — An ultra-fast, lightweight
-										web framework that handles all server-side routing, middleware, and HTTP
-										concerns with minimal overhead.
-									</span>
-								</li>
-								<li className="flex items-start gap-3">
-									<span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2 flex-shrink-0" />
-									<span>
-										<strong className="text-foreground">React Router 7</strong> — The definitive
-										routing solution for React applications, providing data loading, mutations,
-										navigation state management, and more.
-									</span>
-								</li>
-								<li className="flex items-start gap-3">
-									<span className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2 flex-shrink-0" />
-									<span>
-										<strong className="text-foreground">React Server Components (RSC)</strong>— A
-										React feature that allows components to render exclusively on the server,
-										enabling direct data access, reduced bundle sizes, and improved performance.
-									</span>
-								</li>
-							</ul>
+			<div className="relative z-10">
+				{/* Hero */}
+				<section className="pt-24 pb-16 px-6 bg-[var(--color-bg-cream)] border-b-4 border-black">
+					<div className="max-w-4xl mx-auto text-center">
+						<div className="inline-flex gap-4 mb-8">
+							<div className="w-6 h-6 bg-[var(--color-bauhaus-red)] rounded-full border-2 border-black" />
+							<div className="w-6 h-6 bg-[var(--color-bauhaus-blue)] border-2 border-black" />
+							<div className="w-6 h-6 bg-[var(--color-bauhaus-yellow)] border-2 border-black" />
 						</div>
+						<h1 className="font-display font-bold text-5xl sm:text-6xl uppercase tracking-tighter mb-8">
+							The <span className="text-[var(--color-bauhaus-blue)]">Foundation</span>
+						</h1>
+						<p className="text-xl text-gray-800 font-body max-w-2xl mx-auto leading-relaxed border-t-4 border-black pt-8">
+							A production-ready architecture built on functional principles. We've stripped away
+							the excess to provide a stack that performs with geometric precision.
+						</p>
 					</div>
 				</section>
 
-				{/* Key Features Grid */}
-				<section className="mb-16">
-					<h2 className="text-2xl font-semibold text-foreground mb-8">Key Features</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<div className="glass rounded-xl p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-2">TypeScript Native</h3>
-							<p className="text-foreground-muted text-sm">
-								Built with TypeScript from the ground up. Every API, route, and component is fully
-								typed, providing excellent IDE support and catching errors at build time.
-							</p>
-						</div>
+				{/* The Three Pillars Detail */}
+				<section className="py-24 px-6 bg-white border-b-4 border-black">
+					<div className="max-w-5xl mx-auto">
+						<h2 className="font-display font-bold text-3xl uppercase tracking-tight text-center mb-16">
+							Structural Integrity
+						</h2>
 
-						<div className="glass rounded-xl p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-2">File-Based Routing</h3>
-							<p className="text-foreground-muted text-sm">
-								Routes are automatically generated from files in the{" "}
-								<code className="bg-surface px-1.5 py-0.5 rounded text-brand-primary">
-									src/routes
-								</code>{" "}
-								directory. Create a new file, and your route is live instantly.
-							</p>
-						</div>
-
-						<div className="glass rounded-xl p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-2">Vite Powered</h3>
-							<p className="text-foreground-muted text-sm">
-								Lightning-fast HMR with Vite. Changes appear instantly during development, with
-								optimized production builds powered by Rolldown.
-							</p>
-						</div>
-
-						<div className="glass rounded-xl p-6">
-							<h3 className="text-lg font-semibold text-foreground mb-2">No Configuration</h3>
-							<p className="text-foreground-muted text-sm">
-								Everything works out of the box. No webpack configs, no babel setup. Just install
-								dependencies and start building.
-							</p>
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+							<ArchitectureCard
+								title="Hono"
+								tag="Server"
+								color="blue"
+								description="The minimalist backbone. An ultra-fast, lightweight web framework that handles routing and middleware with zero bloat."
+							/>
+							<ArchitectureCard
+								title="RR7"
+								tag="Routing"
+								color="yellow"
+								description="The navigational system. Definitive routing, data loading, and mutations integrated into the core architecture."
+							/>
+							<ArchitectureCard
+								title="RSC"
+								tag="Render"
+								color="red"
+								description="The efficient output. Components render on the server, shipping pure HTML and eliminating unnecessary client-side weight."
+							/>
 						</div>
 					</div>
 				</section>
 
 				{/* How It Works */}
-				<section className="mb-16">
-					<div className="glass rounded-2xl p-8 lg:p-12">
-						<h2 className="text-2xl font-semibold text-foreground mb-6">How It Works</h2>
+				<section className="py-24 px-6 bg-[var(--color-bg-cream)] border-b-4 border-black">
+					<div className="max-w-4xl mx-auto">
+						<div className="bauhaus-card bg-white p-8 md:p-16">
+							<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-12 border-b-8 border-[var(--color-bauhaus-red)] pb-4 inline-block">
+								Operational Flow
+							</h2>
 
-						<div className="space-y-8">
-							<div className="flex gap-4">
-								<div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center font-semibold text-sm">
-									1
+							<div className="space-y-12 relative">
+								{/* Connecting line */}
+								<div className="absolute left-6 top-6 bottom-6 w-1 bg-black hidden md:block" />
+
+								<div className="flex gap-8 items-start relative z-10">
+									<ImprintNumber number={1} color="red" />
+									<div>
+										<h3 className="font-heading font-bold text-xl uppercase tracking-tight mb-2">
+											Ingestion
+										</h3>
+										<p className="text-gray-700 font-body">
+											Hono receives the incoming HTTP request and runs foundational middleware —
+											security, logging, and state.
+										</p>
+									</div>
 								</div>
-								<div>
-									<h3 className="font-semibold text-foreground">Request Handling</h3>
-									<p className="text-foreground-muted text-sm mt-1">
-										Hono receives the incoming HTTP request and runs any middleware (auth, logging,
-										CORS, etc.).
-									</p>
+
+								<div className="flex gap-8 items-start relative z-10">
+									<ImprintNumber number={2} color="blue" />
+									<div>
+										<h3 className="font-heading font-bold text-xl uppercase tracking-tight mb-2">
+											Routing
+										</h3>
+										<p className="text-gray-700 font-body">
+											React Router resolves the intent, executes loaders, and maps the request to
+											the correct functional component.
+										</p>
+									</div>
+								</div>
+
+								<div className="flex gap-8 items-start relative z-10">
+									<ImprintNumber number={3} color="yellow" />
+									<div>
+										<h3 className="font-heading font-bold text-xl uppercase tracking-tight mb-2">
+											Construction
+										</h3>
+										<p className="text-gray-700 font-body">
+											React Server Components execute directly, fetching data and rendering the
+											initial view without shipping client JS.
+										</p>
+									</div>
+								</div>
+
+								<div className="flex gap-8 items-start relative z-10">
+									<ImprintNumber number={4} color="black" />
+									<div className="text-white">
+										<div className="bg-black p-6 shadow-[8px_8px_0px_0px_var(--color-bauhaus-blue)]">
+											<h3 className="font-heading font-bold text-xl uppercase tracking-tight mb-2">
+												Interaction
+											</h3>
+											<p className="text-gray-400 font-body text-sm">
+												Client components hydrate only where function dictates, adding interactivity
+												as an enhancement, not a requirement.
+											</p>
+										</div>
+									</div>
 								</div>
 							</div>
+						</div>
+					</div>
+				</section>
 
-							<div className="flex gap-4">
-								<div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center font-semibold text-sm">
-									2
+				{/* Characteristics */}
+				<section className="py-24 px-6 bg-white border-b-4 border-black">
+					<div className="max-w-7xl mx-auto">
+						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+							{[
+								{ title: "TypeScript", icon: "◈", color: "blue" },
+								{ title: "File-Based", icon: "⚡", color: "yellow" },
+								{ title: "Vite Power", icon: "✦", color: "red" },
+								{ title: "Zero Config", icon: "◉", color: "black" },
+							].map((item) => (
+								<div key={item.title} className="bauhaus-card p-8 text-center group bg-white">
+									<div
+										className={`text-5xl mb-6 transition-transform group-hover:scale-125 duration-300 inline-block text-[var(--color-bauhaus-${item.color === "black" ? "red" : item.color})]`}
+									>
+										{item.icon}
+									</div>
+									<h3 className="font-heading font-bold uppercase tracking-widest text-sm">
+										{item.title}
+									</h3>
 								</div>
-								<div>
-									<h3 className="font-semibold text-foreground">Route Resolution</h3>
-									<p className="text-foreground-muted text-sm mt-1">
-										React Router matches the URL to a route and determines what needs to render.
-									</p>
-								</div>
-							</div>
-
-							<div className="flex gap-4">
-								<div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center font-semibold text-sm">
-									3
-								</div>
-								<div>
-									<h3 className="font-semibold text-foreground">Server Rendering</h3>
-									<p className="text-foreground-muted text-sm mt-1">
-										React Server Components execute on the server, fetching data and rendering to
-										HTML or the RSC payload format.
-									</p>
-								</div>
-							</div>
-
-							<div className="flex gap-4">
-								<div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-primary/20 text-brand-primary flex items-center justify-center font-semibold text-sm">
-									4
-								</div>
-								<div>
-									<h3 className="font-semibold text-foreground">Client Hydration</h3>
-									<p className="text-foreground-muted text-sm mt-1">
-										Client Components are hydrated where needed, adding interactivity to the
-										server-rendered page.
-									</p>
-								</div>
-							</div>
+							))}
 						</div>
 					</div>
 				</section>
 
 				{/* Getting Started */}
-				<section>
-					<div className="glass rounded-2xl p-8 lg:p-12">
-						<h2 className="text-2xl font-semibold text-foreground mb-6">Getting Started</h2>
+				<section className="py-24 px-6 bg-[var(--color-bauhaus-blue)]">
+					<div className="max-w-4xl mx-auto">
+						<div className="bauhaus-card bg-white p-8 md:p-12 relative overflow-hidden">
+							<div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-bauhaus-yellow)] -translate-y-1/2 translate-x-1/2 rotate-45 border-4 border-black" />
 
-						<div className="space-y-4">
-							<div className="glass-strong rounded-lg p-4 font-mono text-sm">
-								<p className="text-foreground-muted">
-									<span className="text-brand-primary">$</span> npm install
-								</p>
-								<p className="text-foreground-muted mt-2">
-									<span className="text-brand-primary">$</span> npm run dev
-								</p>
+							<h2 className="font-display font-bold text-4xl uppercase tracking-tighter mb-8">
+								Commence
+							</h2>
+
+							<div className="bg-black p-8 shadow-[8px_8px_0px_0px_var(--color-bauhaus-red)] mb-8">
+								<pre className="font-mono text-white leading-relaxed">
+									<code>{`npm install
+npm run dev`}</code>
+								</pre>
 							</div>
 
-							<p className="text-foreground-muted">
-								Your application will be available at{" "}
-								<code className="bg-surface px-1.5 py-0.5 rounded text-brand-primary">
-									http://localhost:5173
-								</code>
-								. Edit files in{" "}
-								<code className="bg-surface px-1.5 py-0.5 rounded text-brand-primary">
-									src/routes
-								</code>{" "}
-								to see changes instantly.
+							<p className="text-gray-800 font-body font-bold text-center">
+								Access the system at <code className="bg-gray-100 px-2 py-1">localhost:5173</code>
 							</p>
 						</div>
 					</div>
 				</section>
-			</main>
+			</div>
 		</div>
 	);
 }
