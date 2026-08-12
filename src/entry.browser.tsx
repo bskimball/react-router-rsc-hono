@@ -25,17 +25,15 @@ setServerCallback(
 // Get and decode the initial server payload
 void createFromReadableStream<RSCServerPayload>(getRSCStream()).then((payload) => {
 	startTransition(async () => {
-		const formState = payload.type === "render" ? await payload.formState : undefined;
+		const formState =
+			payload.type === "render" ? await Promise.resolve(payload.formState) : undefined;
 
 		hydrateRoot(
 			document,
 			<StrictMode>
 				<RSCHydratedRouter createFromReadableStream={createFromReadableStream} payload={payload} />
 			</StrictMode>,
-			{
-				// @ts-expect-error - no types for this yet
-				formState,
-			},
+			{ formState },
 		);
 
 		// Expose router to window for HMR

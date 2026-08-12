@@ -69,8 +69,8 @@ export default function About() {
 							The <span className="text-blue">Foundation</span>
 						</h1>
 						<p className="text-xl text-gray-800 font-body max-w-2xl mx-auto leading-relaxed border-t-4 border-black pt-8">
-							A production-ready architecture built on functional principles. We've stripped away
-							the excess to provide a stack that performs with geometric precision.
+							An experimental architecture built on functional principles. We've stripped away the
+							excess to provide a stack that performs with geometric precision.
 						</p>
 					</div>
 				</section>
@@ -90,7 +90,7 @@ export default function About() {
 								description="The minimalist backbone. An ultra-fast, lightweight web framework that handles routing and middleware with zero bloat."
 							/>
 							<ArchitectureCard
-								title="RR7"
+								title="RR8"
 								tag="Routing"
 								color="yellow"
 								description="The navigational system. Definitive routing, data loading, and mutations integrated into the core architecture."
@@ -183,7 +183,7 @@ export default function About() {
 								{ title: "TypeScript", icon: "◈", color: "blue" },
 								{ title: "File-Based", icon: "⚡", color: "yellow" },
 								{ title: "Vite Power", icon: "✦", color: "red" },
-								{ title: "Zero Config", icon: "◉", color: "black" },
+								{ title: "Strict Mode", icon: "◉", color: "black" },
 							].map((item) => (
 								<div key={item.title} className="bauhaus-card p-8 text-center group bg-white">
 									<div

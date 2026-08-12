@@ -20,16 +20,18 @@ export async function generateHTML(
 		// Provide the React Server touchpoints.
 		createFromReadableStream,
 		// Render the router to HTML.
-		async renderHTML(getPayload) {
+		async renderHTML(getPayload, options) {
 			const payload = await getPayload();
-			const formState = payload.type === "render" ? await payload.formState : undefined;
+			const formState =
+				payload.type === "render" ? await Promise.resolve(payload.formState) : undefined;
 
 			const bootstrapScriptContent = await import.meta.viteRsc.loadBootstrapScriptContent("index");
 
 			return await renderHTMLToReadableStream(<RSCStaticRouter getPayload={getPayload} />, {
+				...options,
 				bootstrapScriptContent,
-				// @ts-expect-error - no types for this yet
 				formState,
+				signal: request.signal,
 			});
 		},
 	});

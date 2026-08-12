@@ -38,10 +38,10 @@ edit({
 
 ## Tech Stack
 
-- **React Router 7** with React Server Components (RSC)
+- **React Router 8.3** with React Server Components (RSC)
 - **Hono** - Web framework for the server
-- **Node.js 22.6+** - Native TypeScript support (type stripping enabled by default)
-- **Vite** - Build tool and dev server
+- **Node.js 22.22.2+, 24.15.0+, or 26+** - Native TypeScript support (type stripping enabled by default)
+- **Vite 8.2.1** - Build tool and dev server
 - **Vite+** - Formatter and linter (Oxlint, Oxfmt, Vitest, tsdown, Rolldown)
 - **TailwindCSS** - Styling
 
@@ -49,10 +49,10 @@ edit({
 
 - `npm run dev` - Start development server (runs on port 5173)
 - `npm run build` - Build for production
-- `npm start` - Run production server (default port 3000, configurable via PORT env var)
+- `npm start` - Run the built Hono server (default port 3000, configurable via PORT env var)
 - `npm run typecheck` - Type check with TypeScript
 - `npm run check` - Run Vite+ linter and formatter
-- `npm run fmt` - Run Vite+ formatter (Oxfmt)
+- `npm run format` - Run Vite+ formatter (Oxfmt)
 
 ## Project Structure
 
@@ -75,7 +75,7 @@ Uses **Vite+** with:
 
 ## Node.js Requirements
 
-Requires **Node.js 22.6+** for native TypeScript support. The server runs TypeScript files directly without a transpiler - Node's built-in type stripping handles the conversion.
+Requires **Node.js 22.22.2+, 24.15.0+, or 26+** for the current npm and build toolchain. The server runs TypeScript files directly without a transpiler - Node's built-in type stripping handles the conversion.
 
 ## Tool Usage Guidelines
 
