@@ -34,7 +34,7 @@
 ### Use this repository as a template
 
 ```bash
-npx degit bskimball/rr-rsc my-rsc-app
+npx degit bskimball/react-router-rsc-hono my-rsc-app
 cd my-rsc-app
 npm install
 npm run dev
